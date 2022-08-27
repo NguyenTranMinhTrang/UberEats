@@ -1,21 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import Home from './src/screens/Home';
+import RestaurantDetail from './src/screens/RestaurantDetail';
+import RestaurantList from './assets/data/restaurants.json';
 
 export default function App() {
   return (
     <View style={{ flex: 1 }}>
-      <Home />
+      <RestaurantDetail restaurant={RestaurantList[0]} />
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 10
-  },
-});
+

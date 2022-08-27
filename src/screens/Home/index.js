@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, SafeAreaView, FlatList, View } from "react-native";
+import { StyleSheet, FlatList, View } from "react-native";
 import RestaurantList from "../../../assets/data/restaurants.json";
 import { RestaurantItem } from "../../components";
 
