@@ -1,7 +1,6 @@
 import React from "react";
 import { StyleSheet, FlatList, View, Text, Image, TouchableOpacity } from "react-native";
 import { MenuItem } from "../../components";
-import { Ionicons } from '@expo/vector-icons';
 
 const RestaurantDetail = ({ restaurant }) => {
     return (
