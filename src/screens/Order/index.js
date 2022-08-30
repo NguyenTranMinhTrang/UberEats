@@ -4,7 +4,6 @@ import data from "../../../assets/data/orders.json";
 import { OrderItem } from "../../components";
 
 const Order = () => {
-    console.log(data);
     return (
         <View style={{ padding: 10 }}>
             <View

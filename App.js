@@ -1,11 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import Order from './src/screens/Order';
+import { NavigationContainer } from '@react-navigation/native';
+import Navigator from './src/navigation';
+
+
 export default function App() {
   return (
-    <View style={{ flex: 1 }}>
-      <Order />
-    </View>
+    <NavigationContainer>
+      <Navigator />
+    </NavigationContainer>
   );
 }
 

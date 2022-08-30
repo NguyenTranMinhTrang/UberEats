@@ -1,8 +1,16 @@
 import React from "react";
 import { StyleSheet, FlatList, View, Text, Image, TouchableOpacity } from "react-native";
 import { MenuItem } from "../../components";
+import data from "../../../assets/data/restaurants.json";
 
-const RestaurantDetail = ({ restaurant }) => {
+const restaurant = data[0];
+
+const RestaurantDetail = ({ route, navigation }) => {
+
+    // call api
+    const id = route.params?.id;
+
+    // render
     return (
         <View style={styles.container}>
             <FlatList
@@ -26,8 +34,14 @@ const RestaurantDetail = ({ restaurant }) => {
                     return <MenuItem dish={item} />
                 }}
                 showsVerticalScrollIndicator={false}
+                keyExtractor={({ item }) => item.name}
             />
-            <TouchableOpacity style={styles.buttonContainer}>
+            <TouchableOpacity
+                style={styles.buttonContainer}
+                onPress={() => {
+                    navigation.goBack();
+                }}
+            >
                 <Ionicons name="arrow-back" size={30} />
             </TouchableOpacity>
         </View>
