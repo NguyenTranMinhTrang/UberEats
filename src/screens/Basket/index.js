@@ -19,10 +19,16 @@ const BasketItem = ({ dish }) => {
 }
 
 
-const Basket = () => {
+const Basket = ({ navigation }) => {
     return (
         <View style={styles.container}>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity
+                style={styles.button}
+                onPress={() => {
+                    navigation.goBack();
+                }}
+
+            >
                 <Ionicons name="arrow-back" size={40} />
             </TouchableOpacity>
             <Text style={styles.title}>{restaurant.name}</Text>

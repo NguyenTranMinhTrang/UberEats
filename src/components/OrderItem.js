@@ -1,9 +1,14 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, Pressable } from "react-native";
 
-const OrderItem = ({ order }) => {
+const OrderItem = ({ order, navigation }) => {
     return (
-        <View style={{ flexDirection: "row", paddingVertical: 10, borderBottomWidth: 1, borderBottomColor: "gray", alignItems: "center" }}>
+        <Pressable
+            style={{ flexDirection: "row", paddingVertical: 10, borderBottomWidth: 1, borderBottomColor: "gray", alignItems: "center" }}
+            onPress={() => {
+                navigation.navigate("OrderDetail", { id: order.id });
+            }}
+        >
             {/* Image */}
             <View>
                 <Image
@@ -20,7 +25,7 @@ const OrderItem = ({ order }) => {
                 <Text style={{ color: "gray" }}>3 Items . $38.45</Text>
                 <Text style={{ color: "gray" }}>{order.Restaurant.updatedAt}</Text>
             </View>
-        </View>
+        </Pressable>
     )
 }
 

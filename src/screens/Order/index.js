@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, FlatList, TouchableOpacity } from "react-native
 import data from "../../../assets/data/orders.json";
 import { OrderItem } from "../../components";
 
-const Order = () => {
+const Order = ({ navigation }) => {
     return (
         <View style={{ padding: 10 }}>
             <View
@@ -18,7 +18,7 @@ const Order = () => {
             <FlatList
                 data={data}
                 renderItem={({ item }) => {
-                    return <OrderItem order={item} />
+                    return <OrderItem order={item} navigation={navigation} />
                 }}
             />
         </View>

@@ -1,9 +1,14 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 
-const MenuItem = ({ dish }) => {
+const MenuItem = ({ dish, navigation }) => {
     return (
-        <TouchableOpacity style={styles.container}>
+        <TouchableOpacity
+            style={styles.container}
+            onPress={() => {
+                navigation.navigate("MenuDetail", { id: dish.id });
+            }}
+        >
             <View style={styles.containerTitle}>
                 <Text style={styles.name}>{dish.name}</Text>
                 <Text style={styles.subtitle} numberOfLines={2} >{dish.description}</Text>

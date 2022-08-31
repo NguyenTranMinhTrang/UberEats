@@ -1,11 +1,19 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { Ionicons, AntDesign } from '@expo/vector-icons';
+import data from "../../../assets/data/restaurants.json";
 
+const restaurant = data[0];
+const dish = restaurant.dishes[0];
 
-const MenuDetail = ({ dish }) => {
+const MenuDetail = ({ route, navigation /* , dish */ }) => {
 
     const [quality, setQuality] = useState(1);
+
+    // call api
+    const id = route.params?.id;
+
+    console.log("Dish id: ", id);
 
     const getTotal = () => {
         return (quality * dish.price).toFixed(2);
@@ -13,7 +21,12 @@ const MenuDetail = ({ dish }) => {
 
     return (
         <View style={styles.container}>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity
+                style={styles.button}
+                onPress={() => {
+                    navigation.goBack();
+                }}
+            >
                 <Ionicons name="arrow-back" size={40} />
             </TouchableOpacity>
             <View style={styles.infoContainer} >
@@ -39,9 +52,14 @@ const MenuDetail = ({ dish }) => {
                     <AntDesign name="plus" size={35} color="black" />
                 </TouchableOpacity>
             </View>
-            <View style={styles.basketContainer}>
+            <TouchableOpacity
+                style={styles.basketContainer}
+                onPress={() => {
+                    navigation.navigate("Basket")
+                }}
+            >
                 <Text style={styles.basketString}>Add {quality} to basket</Text>
-            </View>
+            </TouchableOpacity>
             <Text style={[styles.basketString, styles.price]}>{getTotal()} $</Text>
         </View>
     )

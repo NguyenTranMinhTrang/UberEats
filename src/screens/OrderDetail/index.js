@@ -9,7 +9,12 @@ import { OrderListItem } from "../../components";
 const data = order[0];
 const dishes = restaurant[0].dishes;
 
-const OrderDetail = () => {
+const OrderDetail = ({ navigation, route }) => {
+
+    // call api
+    const id = route.params?.id;
+
+    console.log("Dish id: ", id);
 
     return (
         <View>
@@ -28,6 +33,9 @@ const OrderDetail = () => {
                         alignItems: "center",
                         position: "absolute",
                         left: 10
+                    }}
+                    onPress={() => {
+                        navigation.goBack();
                     }}
                 >
                     <Ionicons name="chevron-back" size={35} color="#00bfff" />

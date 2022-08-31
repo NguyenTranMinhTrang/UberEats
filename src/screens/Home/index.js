@@ -3,13 +3,13 @@ import { StyleSheet, FlatList, View } from "react-native";
 import RestaurantList from "../../../assets/data/restaurants.json";
 import { RestaurantItem } from "../../components";
 
-const Home = () => {
+const Home = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <FlatList
                 data={RestaurantList}
                 renderItem={({ item }) => {
-                    return <RestaurantItem restaurant={item} />
+                    return <RestaurantItem restaurant={item} navigation={navigation} />
                 }}
                 showsVerticalScrollIndicator={false}
             />

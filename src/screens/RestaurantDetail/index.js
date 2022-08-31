@@ -2,13 +2,17 @@ import React from "react";
 import { StyleSheet, FlatList, View, Text, Image, TouchableOpacity } from "react-native";
 import { MenuItem } from "../../components";
 import data from "../../../assets/data/restaurants.json";
+import { Ionicons } from '@expo/vector-icons';
 
 const restaurant = data[0];
 
 const RestaurantDetail = ({ route, navigation }) => {
 
+
     // call api
     const id = route.params?.id;
+
+    console.log(id);
 
     // render
     return (
@@ -31,10 +35,10 @@ const RestaurantDetail = ({ route, navigation }) => {
                     )
                 }}
                 renderItem={({ item }) => {
-                    return <MenuItem dish={item} />
+                    return <MenuItem dish={item} navigation={navigation} />
                 }}
                 showsVerticalScrollIndicator={false}
-                keyExtractor={({ item }) => item.name}
+                keyExtractor={(item) => item.name}
             />
             <TouchableOpacity
                 style={styles.buttonContainer}
